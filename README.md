@@ -6,8 +6,6 @@ This project uses the **CICIDS 2017 Wednesday dataset** and implements data prep
 
 ## Project Structure
 
-Project Structure
-
 1. Dataset Acquisition & Exploration
 
     -Loaded the dataset and inspected its structure.
