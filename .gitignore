@@ -1,3 +1,16 @@
+*******************************************************  Milestone 1  ********************************************************************
 /content/drive/MyDrive/AI Sentinet Project/Cleaned_wednesday.csv
 /content/drive/MyDrive/AI Sentinet Project/Encoded_wednesday.csv
+
+*******************************************************  Milestone 2  ********************************************************************
 /content/drive/MyDrive/AI Sentinet Project/GeneratedLabelledFlows/CleanedData/Wednesday_top10_features.csv
+
+Saving Trained Models :
+/content/drive/MyDrive/AI Sentinet Project/rf_model.pkl
+/content/drive/MyDrive/AI Sentinet Project/svm_model.pkl
+/content/drive/MyDrive/AI Sentinet Project/lr_model.pkl
+
+Saving Model performance results :
+/content/drive/MyDrive/AI Sentinet Project/model_performance_results.csv
+
+*******************************************************  Milestone 3  ********************************************************************
