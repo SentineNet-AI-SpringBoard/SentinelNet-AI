@@ -2,53 +2,49 @@
 
 ### Overview
 **SentinelNet-AI** is an AI-powered Network Intrusion Detection System developed to detect malicious network traffic using machine learning techniques.  
-This project uses the **CICIDS 2017 Wednesday dataset** and implements data preprocessing, feature engineering, PCA, and Random Forest–based feature importance extraction.
+This project uses the **CICIDS 2017 Wednesday dataset**.
+## Milestone 1: Project Initialization, Dataset Acquisition, and Preprocessing
 
-## Project Structure
+1. Project Goals and Expected Outcomes
 
-1. Dataset Acquisition & Exploration
+    -Develop an AI-based NIDS to detect malicious network activity.
 
-    -Loaded the dataset and inspected its structure.
+    -Understand network traffic data and attack types.
 
-    -Checked data types and summary statistics.
+    -Apply machine learning models for intrusion detection.
 
-2. Data Cleaning & Preprocessing
+    -Perform feature engineering and identify the most important features.
 
-    -Handled missing values.
+    -Generate alerts for suspicious activity and prepare analytical reports.
 
-    -Removed irrelevant columns.
+2. Dataset Acquisition and Exploration
 
-    -Detected outliers.
+    -Dataset: CICIDS2017 (Wednesday subset) from CIC Dataset.
 
-    -Encoded categorical labels.
+    -Explored dataset structure, feature types, and unique attack labels.
 
-3. Feature Engineering & Selection
+    -Performed basic statistics and data validation to understand feature distributions.
 
-    -Applied feature scaling.
+    -Visualized data to detect anomalies and ensure data quality.
 
-    -Performed PCA retaining 95% variance.
+3. Data Cleaning
 
-    -Extracted top 10 important features using Random Forest.
+    -Identified missing values and visualized them using heatmaps.
 
-## Technical Workflow
-1. Data Cleaning and Encoding  
-2. Outlier Detection using IQR  
-3. Feature Scaling (StandardScaler)  
-4. Dimensionality Reduction using PCA  
-5. Top 10 Feature Extraction (Random Forest, n_estimators=50)  
-6. Train-Test Split (70–30)
+    -Dropped rows with null values and removed duplicate entries.
 
+    -Removed irrelevant features and cleaned column names for consistency.
 
-## Files included
+4. Data Preprocessing
 
-- **'SentinelNet-AI.ipynb'** – Main Colab notebook containing all code and analysis.
-- **'sentinelnet_encoded.csv'** – Cleaned and encoded dataset.
-- **'sentinelnet_pca.csv'** – PCA-transformed dataset.
-- **'top10_features.csv'** – Extracted top 10 important features.
-- **'.gitignore'** – Excludes raw datasets and temporary files from version control.
+    -Encoded the categorical target column Label using LabelEncoder.
 
+    -Standardized numerical features using StandardScaler.
+   
+    -Visualized feature distributions.
 
-## Tools Used
-- Python, Pandas, NumPy, Matplotlib, Seaborn  
-- Scikit-learn (StandardScaler, PCA, RandomForestClassifier)  
-- Google Colab
+6. Dataset Splitting
+
+    -Split the dataset into training (70%) and testing (30%) subsets.
+
+    -Prepared datasets for machine learning model development and evaluation.
