@@ -47,7 +47,7 @@ CICIDS2017 includes more modern attacks like Brute Force SSH, DoS, Heartbleed, W
 
 *Data Validation:* Look for anomalies. Are there any negative values for time duration? Do any features have zero variance (all values are the same)? This initial check helps spot data entry errors or irrelevant columns early on.
 
-## **Week-2 Data Cleaning and Preprocessing
+## Week-2 Data Cleaning and Preprocessing
 
 Raw data is rarely ready for a machine learning model. This week focuses on refining the dataset into a clean, properly formatted state.
 
