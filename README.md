@@ -1,3 +1,4 @@
+**SentinelNet-AI-Powered Network Intrusion Detection System (NIDS)**
 The Dataset used in this project is CICIDS2017, obtained from the official source of the Canadian Institute for Cybersecurity.
 Dataset:https://www.unb.ca/cic/datasets/ids-2017.html
 
