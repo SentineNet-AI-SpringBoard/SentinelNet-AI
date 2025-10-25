@@ -81,50 +81,65 @@ It contains **real-world, labeled network traffic** captured over several days, 
    - `Monday-WorkingHours.csv`  
    - `Friday-WorkingHours.csv`  
 
-#  Milestone 1: Dataset Acquisition and Exploration
+---
 
-##  Advanced Exploratory Data Analysis (EDA)
+## Milestone 1: Dataset Acquisition, Exploration & Preprocessing
 
-**Steps:**
-1. Load and inspect the dataset  
-2. Get column names  
-3. Check data types  
-4. Generate summary info  
-5. Compute basic statistics  
+### Week 1: Project Initialization and Dataset Acquisition
+1. **Project Goals**  
+   - Define objectives and expected outcomes for NIDS development.  
+2. **Dataset Acquisition**  
+   - Download CICIDS2017 CSV files from [CIC IDS 2017 Dataset](https://www.unb.ca/cic/datasets/ids-2017.html).  
+   - Load dataset into Colab using Google Drive mount.  
+3. **Exploratory Data Analysis (EDA)**  
+   - View first few rows of the dataset.  
+   - Check dataset shape, columns, and data types.  
+   - Generate summary statistics (mean, std, min, max).  
+   - Visualize class distribution and numeric feature distributions.  
+4. **Data Quality Analysis**  
+   - Identify missing values and duplicates.  
+   - Explore feature correlations using a heatmap.  
+   - Detect outliers with boxplots and statistical methods.  
+
+### Week 2: Data Cleaning and Preprocessing
+1. **Data Cleaning**  
+   - Handle missing values and infinite values.  
+   - Remove duplicate rows and irrelevant columns.  
+2. **Feature Preprocessing**  
+   - Encode categorical variables with Label Encoding or One-Hot Encoding.  
+   - Normalize/standardize numeric features using StandardScaler.  
+3. **Dataset Preparation**  
+   - Save cleaned dataset for reuse.  
+   - Split dataset into training and testing sets (70/30) with stratification.  
+   - Save final processed train/test datasets for modeling.  
 
 ---
 
-##  Handling Missing Values
+## Milestone 2: Feature Engineering, Selection & Random Forest Training
 
-**Steps:**
+### Week 3: Feature Engineering and Selection
+1. **Load Preprocessed Dataset**  
+   - Load cleaned train/test splits from Milestone 1.  
+2. **Feature Importance Analysis (Random Forest)**  
+   - Train a Random Forest Classifier.  
+   - Extract feature importance scores and rank features.  
+   - Select top features for modeling.  
+3. **Dimensionality Reduction (Optional PCA)**  
+   - Scale numeric features and apply PCA.  
+   - Determine the number of components to retain ~95% variance.  
+   - Visualize first two principal components.  
 
-6. Identify missing values  
-7. Visualize missing values  
-
-#  Milestone 2: Advanced EDA
-
-## Advanced Data Exploration and Preprocessing
-
-
-1. Explore the dataset (shape, columns, data types, summary, statistics)  
-2. Handle duplicate rows and remove irrelevant features  
-3. Save the cleaned dataset  
+### Week 4: Random Forest Model Training
+1. **Model Training**  
+   - Use top features or PCA-transformed features to train a Random Forest.  
+   - Parameters: `n_estimators=50`, `n_jobs=-1`.  
+2. **Model Evaluation**  
+   - Predict on test set.  
+   - Compute accuracy, precision, recall, and F1-score.  
+   - Generate a detailed classification report.  
+   - Visualize top feature importances.  
+3. **Feature Selection Refinement**  
+   - Retrain model using only top RF features or selected PCA components.  
+   - Refine performance and validate model.  
 
 ---
-
-## Feature Analysis and Visualization
-
-
-4. Check correlation between numeric features using a heatmap  
-5. Detect outliers with boxplots and without boxplot
-6. Analyze important vs non-important features  
-7. Apply encoding to categorical features  
-8. Explore feature distribution using histograms, scatterplots, boxplots, and heatmaps  
-
----
-
-## Save Processed Dataset
-
-
-9. Save the final encoded dataset as CSV for model training  
-
