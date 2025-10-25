@@ -81,65 +81,93 @@ It contains **real-world, labeled network traffic** captured over several days, 
    - `Monday-WorkingHours.csv`  
    - `Friday-WorkingHours.csv`  
 
----
-
 ## Milestone 1: Dataset Acquisition, Exploration & Preprocessing
 
 ### Week 1: Project Initialization and Dataset Acquisition
-1. **Project Goals**  
-   - Define objectives and expected outcomes for NIDS development.  
-2. **Dataset Acquisition**  
-   - Download CICIDS2017 CSV files from [CIC IDS 2017 Dataset](https://www.unb.ca/cic/datasets/ids-2017.html).  
-   - Load dataset into Colab using Google Drive mount.  
-3. **Exploratory Data Analysis (EDA)**  
-   - View first few rows of the dataset.  
-   - Check dataset shape, columns, and data types.  
-   - Generate summary statistics (mean, std, min, max).  
-   - Visualize class distribution and numeric feature distributions.  
-4. **Data Quality Analysis**  
-   - Identify missing values and duplicates.  
-   - Explore feature correlations using a heatmap.  
-   - Detect outliers with boxplots and statistical methods.  
+1. **Project Setup & Dataset Loading**  
+   1.1 Define project goals and expected outcomes  
+   1.2 Download the CICIDS2017 dataset  
+   1.3 Load dataset into the notebook  
+   1.4 Understand dataset structure and attack types  
+
+2. **Initial Exploratory Data Analysis (EDA)**  
+   2.1 View first rows of the dataset  
+   2.2 Check dataset shape, column names, and data types  
+   2.3 Generate summary information  
+   2.4 Compute summary statistics (mean, std, min, max)  
+
+3. **Data Quality & Distribution Analysis**  
+   3.1 Analyze class distribution (attack vs normal)  
+   3.2 Identify skewed features  
+   3.3 Explore feature distributions (histograms, scatterplots, boxplots)  
+   3.4 Detect outliers using boxplots & statistical checks  
+   3.5 Check feature correlations using heatmap  
 
 ### Week 2: Data Cleaning and Preprocessing
-1. **Data Cleaning**  
-   - Handle missing values and infinite values.  
-   - Remove duplicate rows and irrelevant columns.  
-2. **Feature Preprocessing**  
-   - Encode categorical variables with Label Encoding or One-Hot Encoding.  
-   - Normalize/standardize numeric features using StandardScaler.  
-3. **Dataset Preparation**  
-   - Save cleaned dataset for reuse.  
-   - Split dataset into training and testing sets (70/30) with stratification.  
-   - Save final processed train/test datasets for modeling.  
+4. **Data Cleaning**  
+   4.1 Identify and handle missing values  
+   4.2 Detect and remove duplicate rows  
+   4.3 Remove irrelevant or constant features  
+   4.4 Handle infinite values and extreme outliers (replace using median)  
+
+5. **Feature Preprocessing**  
+   5.1 Convert categorical columns using Label Encoding or One-Hot Encoding  
+   5.2 Analyze important vs. non-important features  
+   5.3 Normalize or standardize numerical features (e.g., StandardScaler)  
+
+6. **Dataset Preparation for ML**  
+   6.1 Save cleaned dataset  
+   6.2 Split dataset into training and testing sets  
+   6.3 Save final processed dataset for model training  
 
 ---
 
 ## Milestone 2: Feature Engineering, Selection & Random Forest Training
 
 ### Week 3: Feature Engineering and Selection
-1. **Load Preprocessed Dataset**  
-   - Load cleaned train/test splits from Milestone 1.  
-2. **Feature Importance Analysis (Random Forest)**  
-   - Train a Random Forest Classifier.  
-   - Extract feature importance scores and rank features.  
-   - Select top features for modeling.  
-3. **Dimensionality Reduction (Optional PCA)**  
-   - Scale numeric features and apply PCA.  
-   - Determine the number of components to retain ~95% variance.  
-   - Visualize first two principal components.  
+1. **Load and Preprocess Dataset**  
+   1.1 Load the cleaned dataset saved from Milestone 1  
+   1.2 Separate features (`X`) and target (`y`)  
+   1.3 Encode categorical variables using Label Encoding  
+   1.4 Scale numerical features using StandardScaler (important for PCA)  
+
+2. **Dimensionality Reduction Using PCA**  
+   2.1 Apply PCA to scaled numeric features  
+   2.2 Decide the number of components  
+   2.3 Visualize the first two principal components to observe separation between normal and attack traffic  
+   2.4 Optionally, save PCA-transformed features for further modeling  
+
+3. **Feature Importance with Random Forest**  
+   3.1 Train a Random Forest Classifier on original or PCA-transformed features  
+   3.2 Extract feature importance scores from the trained model  
+   3.3 Rank features based on importance to select top features for modeling  
+
+4. **Correlation / Redundancy Analysis**  
+   4.1 Compute correlation matrix for numeric features  
+   4.2 Compare with PCA components to decide which features to retain  
+   4.3 Use top RF features for further training or refinement  
 
 ### Week 4: Random Forest Model Training
-1. **Model Training**  
-   - Use top features or PCA-transformed features to train a Random Forest.  
-   - Parameters: `n_estimators=50`, `n_jobs=-1`.  
-2. **Model Evaluation**  
-   - Predict on test set.  
-   - Compute accuracy, precision, recall, and F1-score.  
-   - Generate a detailed classification report.  
-   - Visualize top feature importances.  
-3. **Feature Selection Refinement**  
-   - Retrain model using only top RF features or selected PCA components.  
-   - Refine performance and validate model.  
+1. **Train/Test Split**  
+   1.1 Split the dataset into training and testing sets (from Milestone 1)  
+   1.2 Stratify the split to maintain class distribution  
+
+2. **Model Training**  
+   2.1 Train a Random Forest Classifier with `n_estimators=50` and `n_jobs=-1`  
+   2.2 Fit the model on the training data  
+
+3. **Model Evaluation**  
+   3.1 Predict on the test set  
+   3.2 Compute accuracy, precision, recall, F1-score  
+   3.3 Generate a classification report for each class  
+
+4. **Feature Importance Visualization**  
+   4.1 Plot top features from RF as a horizontal bar chart  
+   4.2 Select top features  
+   4.3 Visualize top features  
+
+5. **Feature Selection Refinement**  
+   5.1 Select top RF features or PCA components to retrain the model  
+   5.2 Refine model based on performance metrics if needed  
 
 ---
