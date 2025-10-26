@@ -9,7 +9,7 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 1. Project Goals and Expected Outcomes
 
     -Develop an AI-powered NIDS to detect malicious network traffic.
-
+   
     -Understand network traffic data and attack types.
 
     -Apply ML models to detect intrusions.
@@ -18,7 +18,7 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 
     -Generate alerts for suspicious activity and prepare a report.
 
-2. Dataset Acquisition and Exploration
+3. Dataset Acquisition and Exploration
 
     -Dataset: CICIDS2017 (Wednesday subset) from CIC Dataset.
 
@@ -26,7 +26,7 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 
     -Performed basic statistics and data validation to understand data distribution.
 
-3. Data Cleaning
+4. Data Cleaning
 
     -Identified and visualized missing values using heatmaps.
 
@@ -34,7 +34,7 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 
     -Removed irrelevant features and cleaned column names.
 
-4. Data Preprocessing 
+5. Data Preprocessing 
 
     -Encoded categorical target column Label using LabelEncoder.
 
@@ -42,6 +42,6 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 
     -Visualized distributions of numerical features before and after scaling.
 
-5. Dataset Splitting
+6. Dataset Splitting
 
     -Split dataset into training (80%) and testing (20%) sets for ML model development.
