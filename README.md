@@ -3,53 +3,107 @@
 An AI-powered Network Intrusion Detection System (NIDS) to classify network traffic as normal or malicious using machine learning. The system ingests network flow datasets, extracts features, trains classifiers, and produces alerts/logs for detected suspicious activity.
 ## Dataset choosen for the Project :
  CICIDS2017 Dataset : **Wednesday-workingHours.pcap_ISCX.csv**
-# Milestone 1
-## What I completed (Weeks 1–2) 
-### 1. Dataset acquisition & inspection
-* Downloaded the Wednesday dataset and other relevant captures.
-* Performed initial exploration (head, unique values, class balance, basic counts).
-### 2. Data cleaning & validation
-* Removed duplicates.
-* Handled missing values (identified columns with gaps and either imputed or removed depending on context).
-* Removed irrelevant or redundant columns.
-### 3. Encoding categorical features
-* Converted all categorical columns to numeric form (Label Encoding / One-Hot where applicable).
-* Saved encoded version as /content/drive/MyDrive/AI Sentinet Project/Encoded_wednesday.csv.
-### 4. Scaling & normalization
-* Standardized numeric features to zero mean and unit variance (required for PCA and for ensuring fair feature importance comparisons).
-### 5. Train/test split
-* Created reproducible splits (e.g., train_test_split(..., random_state=42)), saving separate train/test sets where appropriate.
-### 6. Exploratory analysis artifacts
-* Visualizations: distribution plots, boxplots for outlier checks, correlation heatmap
-* Basic statistics (mean, std, min, max) and data types summary.
-All cleaned/encoded files are saved in my Drive paths (Cleaned_wednesday.csv and Encoded_wednesday.csv).
-## Quick concept explanations
-### Data acquisition & structure
-* Network flow datasets (rows = flows / sessions). Typical fields: timestamps, bytes/packets counts, durations, protocol/ports, and derived flow statistics.
-* Understanding attack labels and categories early helps sampling and labeling logic.
-### Missing values & duplicates
-* Missing values: can bias models. Options: drop rows/columns, impute (median/mean for numeric), or flag with indicator columns.
-* Duplicates: removed to avoid over-counting identical flows.
-### Encoding categorical data
-* **Label encoding :** maps categories to integers (fast, but ordinal meaning may be implicit).
-* **One-hot encoding :** creates binary columns for categories (useful when categories are unordered).
-* Use encoded dataset for all subsequent ML steps.
-### Feature scaling
-* Scaling (StandardScaler) is important for PCA and distance-based models. It centers features and scales variance to 1.
-### PCA (why & when)
-* Principal Component Analysis reduces dimensionality by projecting features onto orthogonal axes that explain the greatest variance.
-* Use PCA to identify redundancy and for visualization; do not use PCA-transformed features for interpreting original feature importances (they’re combinations of original features).
-### Train/test split
-* Splitting ensures evaluation on unseen data. Typical split: 80% train / 20% test. Use random_state for reproducibility.
-## Files Included : 
-* **"SentinelNet.ipynb" :** Main Colab notebook containing all code and analysis.
-* **"Cleaned_wednesday.csv":** cleaned (missing values handled, duplicates removed).
-* **"Encoded_wednesday.csv" :** cleaned + categorical features encoded (this is the working file used for PCA/RF).
-* **"CleanedData/Wednesday_top10_features.csv" :** subset containing top 10 RF features + label.
-## Tools & Environments Used :
-* Google Colab (drive mount for I/O)
-* Python 3.x
-* Pandas / NumPy (data handling)
-* Scikit-learn (StandardScaler, PCA, RandomForestClassifier, train_test_split)
-* Matplotlib / Seaborn (visualizations)
-* Git & GitHub (version control & branch management)
+ 
+#  Milestone 1  
+##  What I Completed (Weeks 1 – 2)
+
+### 1️. Dataset Acquisition & Inspection  
+➤ Downloaded the **Wednesday-workingHours** dataset and other relevant capture files from the **CICIDS 2017** dataset.  
+➤ Performed initial exploration using `.head()`, `.info()`, and `.describe()` to understand structure and content.  
+➤ Checked **unique values**, **class distribution**, and overall dataset balance between normal and attack traffic.  
+➤ Verified dataset shape and consistency across all columns.  
+
+---
+
+### 2️. Data Cleaning & Validation  
+➤ Removed duplicates to ensure unique network-flow entries.  
+➤ Handled missing values by imputing (mean / median) or removing depending on context.  
+➤ Dropped irrelevant or redundant columns that added no analytical value.  
+➤ Confirmed that all numeric and categorical columns were clean and valid.  
+
+---
+
+### 3️. Encoding Categorical Features  
+➤ Converted non-numeric attributes into numerical form using:  
+ ▪ **Label Encoding** – for binary or ordered categorical data.  
+ ▪ **One-Hot Encoding** – for unordered categories.  
+➤ Ensured encoded features were ready for ML pipelines.  
+➤ Saved encoded dataset:  
+ `/content/drive/MyDrive/AI Sentinet Project/Encoded_wednesday.csv`  
+
+---
+
+### 4️. Scaling & Normalization  
+➤ Standardized all numeric features using **StandardScaler** (mean = 0, std = 1).  
+➤ Ensured fair comparison of features for PCA and model training.  
+
+---
+
+### 5️. Train / Test Split  
+➤ Used `train_test_split(..., random_state = 42)` for reproducible partitioning.  
+➤ Applied **stratified sampling** to maintain class balance.  
+➤ Saved separate **train** and **test** sets for later milestones.  
+
+---
+
+### 6️. Exploratory Data Analysis (EDA)  
+➤ Generated statistical summaries and key visualizations:  
+ ▪ Distribution plots and boxplots for outlier detection.  
+ ▪ Correlation heatmap for feature relationships.  
+➤ Saved cleaned / encoded files as:  
+ ▪ `Cleaned_wednesday.csv`  
+ ▪ `Encoded_wednesday.csv`  
+
+---
+
+#  Milestone 2  
+##  What I Completed (Weeks 3 – 4)
+
+### 1️. Feature Engineering & Dataset Preparation  
+➤ Loaded the cleaned dataset from **Milestone 1**.  
+➤ Split data into **features (X)** and **target (y)**.  
+➤ Encoded remaining categorical variables using **LabelEncoder**.  
+➤ Scaled numeric columns with **StandardScaler** to normalize variance and prepare for PCA.  
+
+---
+
+### 2️. Dimensionality Reduction — PCA  
+➤ Applied **Principal Component Analysis (PCA)** on scaled data to reduce dimensionality.  
+➤ Determined the optimal number of components via explained-variance ratio.  
+➤ Visualized the first two components to observe class separation between *normal* and *attack* flows.  
+➤ Saved PCA-transformed dataset for later comparison and analysis.  
+
+---
+
+### 3️. Feature Importance & Selection (Random Forest)  
+➤ Trained a **Random Forest Classifier** on both original and PCA-transformed features.  
+➤ Extracted **feature-importance scores** to rank the top predictive attributes.  
+➤ Visualized importances with horizontal bar charts.  
+➤ Combined Random Forest rankings with PCA insights to select the most relevant features.  
+
+---
+
+### 4️. Correlation & Redundancy Analysis  
+➤ Computed a **correlation matrix** to identify multicollinearity among numeric variables.  
+➤ Cross-checked correlation findings with PCA results to eliminate overlapping or redundant features.  
+➤ Finalized a refined feature subset for supervised training.  
+
+---
+
+### 5️. Random Forest Model Training  
+➤ Utilized the existing **train / test** split from Milestone 1 with stratified sampling.  
+➤ Trained **Random Forest Classifier** with parameters:  
+ ▪ `n_estimators = 50`  
+ ▪ `n_jobs = -1` (for parallel processing)  
+➤ Evaluated performance using **Accuracy**, **Precision**, **Recall**, and **F1-Score**.  
+➤ Generated a detailed **classification report** for each class.  
+
+---
+
+### 6️. Feature Visualization & Refinement  
+➤ Visualized top-ranked features using horizontal bar charts.  
+➤ Selected top features or PCA components for retraining.  
+➤ Compared refined model metrics to check for performance improvements.  
+➤ Saved final **trained model** and selected features for the next milestone (unsupervised anomaly detection).  
+
+---
