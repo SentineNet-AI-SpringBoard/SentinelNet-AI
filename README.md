@@ -47,7 +47,7 @@ CICIDS2017 includes more modern attacks like Brute Force SSH, DoS, Heartbleed, W
 
 *Data Validation:* Look for anomalies. Are there any negative values for time duration? Do any features have zero variance (all values are the same)? This initial check helps spot data entry errors or irrelevant columns early on.
 
-## Week-2 Data Cleaning and Preprocessing
+## **Week-2 Data Cleaning and Preprocessing**
 
 Raw data is rarely ready for a machine learning model. This week focuses on refining the dataset into a clean, properly formatted state.
 
@@ -84,3 +84,47 @@ This is one of the most critical steps for evaluating your model properly.
 *Why Split?* You train the model on one portion of the data (the training set) and then evaluate its performance on a separate, unseen portion (the testing set). This simulates how the model would perform on new, real-world data.
 
 *How to Split?* A common split is 80% for training and 20% for testing. It's crucial to shuffle the data before splitting to ensure both sets are representative of the overall data distribution. Libraries like scikit-learn have functions (train_test_split) that handle this process easily.
+
+## **Week 3: Feature Engineering and Selecon**
+
+This week focuses on preparing your data (features) to get the best possible results from your machine learning models. It's about quality over quantity.
+
+**1.Analyze feature importance**
+
+This is the process of figuring out which features (columns in your data) have the most impact on the outcome you're trying to predict. Some features are critical, while others might be irrelevant or just add noise. Techniques include looking at model coefficients or using built-in methods from models like Random Forest.
+
+**2.Use correlation analysis or PCA for dimensionality reduction.**
+
+**Correlation Analysis:** This checks for features that are highly related to each other. If two features are almost identical, they are redundant, and you can often remove one to simplify the model. This is a form of feature selection.
+
+**PCA (Principal Component Analysis):** This is a more advanced dimensionality reduction technique. It transforms your original set of features into a new, smaller set of uncorrelated features called "principal components" that still capture most of the original data's information.
+
+**3.Create new features if applicable.**
+
+This is the "engineering" part. You creatively combine or transform existing features to make new ones that might be more informative.
+
+## **Week 4: Supervised Model Training**
+
+This week is about building and evaluating the actual predictive models using the clean, well-structured features from Week 3.
+
+**1.Train models such as Random Forest, SVM, or Logistic Regression.**
+
+rain models such as Random Forest, SVM, or Logistic Regression: You'll use your prepared data to "teach" different algorithms to find patterns.
+
+**Logistic Regression:** A common, relatively simple model used for classification (predicting a category, like 'yes/no' or 'spam/not_spam').
+
+**SVM (Support Vector Machine):** A powerful model that's effective at finding complex boundaries between classes.
+
+**Random Forest:** A model that builds many "decision trees" and combines their outputs. It's robust, handles complex data well, and is often a strong performer.
+
+**2.Evaluate accuracy, precision, recall, and F1-score.**
+
+Training a model isn't enough; you must test how well it performs on unseen data. These are common metrics to measure performance:
+
+**Accuracy:** The simplest metric. What percentage of predictions did the model get right overall?
+
+**Precision:** Of all the times the model predicted "positive," what percentage was correct? (Helps measure false positives).
+
+**Recall:** Of all the actual "positive" cases, what percentage did the model correctly identify? (Helps measure false negatives).
+
+**F1-Score:** The balanced average of Precision and Recall. It's useful when you care about both false positives and false negatives.
