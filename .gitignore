@@ -14,3 +14,14 @@ Saving Model performance results :
 /content/drive/MyDrive/AI Sentinet Project/model_performance_results.csv
 
 *******************************************************  Milestone 3  ********************************************************************
+Saving All Processed Data and Anomaly Detection Results :
+/content/drive/MyDrive/AI Sentinet Project/Week5_AnomalyDetection_Results.csv
+
+Saving the Tuned Models :
+/content/drive/MyDrive/AI Sentinet Project/rf_model_tuned.pkl
+/content/drive/MyDrive/AI Sentinet Project/lr_model_tuned.pkl
+/content/drive/MyDrive/AI Sentinet Project/svm_model_pretrained.pkl
+
+Saving confusion matrix and ROC curve figures :
+/content/drive/MyDrive/AI Sentinet Project/Confusion_Matrix_Comparison.png
+/content/drive/MyDrive/AI Sentinet Project/ROC_Curve_Comparison.png
