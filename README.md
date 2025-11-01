@@ -107,3 +107,44 @@ An AI-powered Network Intrusion Detection System (NIDS) to classify network traf
 ➤ Saved final **trained model** and selected features for the next milestone (unsupervised anomaly detection).  
 
 ---
+
+# **Milestone 3**  
+## **What I Completed (Weeks 5 - 6)**
+
+###  Anomaly Detection with Unsupervised Learning  
+➤ Focused on identifying unusual network behavior without using labeled data.  
+➤ Implemented **K-Means Clustering** and **Isolation Forest** algorithms to detect traffic patterns deviating from normal flows.  
+➤ Preprocessed and scaled the dataset to ensure consistent feature distribution for clustering.  
+➤ Visualized clustering results to observe separation between normal and anomalous data points.  
+➤ Compared both models based on their ability to identify outliers and anomalies.  
+➤ Found that **Isolation Forest** was more effective at detecting rare attack events compared to K-Means.  
+➤ Selected **Isolation Forest** as the preferred model for anomaly detection due to its higher recall and sensitivity to subtle intrusions.
+
+---
+
+###  Model Evaluation and Fine-Tuning  
+➤ Compared multiple supervised models — **Random Forest**, **Logistic Regression**, and **SVM** — to evaluate classification performance.  
+➤ Used metrics such as **Accuracy**, **Precision**, **Recall**, and **F1-Score** to measure model effectiveness.  
+➤ Selected the best-performing model based on evaluation results for further tuning.
+
+---
+
+###  Hyperparameter Tuning with Cross-Validation  
+➤ Applied **RandomizedSearchCV** for optimizing model parameters through cross-validation.  
+➤ Tuned key parameters of Random Forest and Logistic Regression for better performance and generalization.  
+➤ Skipped SVM tuning due to high computational cost and used the pre-trained model for fair comparison.  
+➤ Compared tuned models to analyze performance improvements after optimization.
+
+---
+
+###  Confusion Matrix and ROC Curve Analysis  
+➤ Generated **confusion matrices** to visually evaluate each model’s classification accuracy and misclassification patterns.  
+➤ Plotted **ROC Curves** and calculated **AUC (Area Under Curve)** scores to assess model discrimination capability.  
+➤ Observed that models with higher AUC and well-defined confusion matrices performed better in detecting attacks.  
+➤ Saved both **Confusion Matrix** and **ROC Curve** visualizations for final project documentation and analysis.
+
+---
+
+**Summary:**  
+In **Week 5**, I developed and compared unsupervised models (K-Means, Isolation Forest) to detect anomalies.  
+In **Week 6**, I evaluated, tuned, and analyzed supervised models (RF, LR, SVM) to identify the best-performing classifier using detailed performance metrics, confusion matrices, and ROC curves.
