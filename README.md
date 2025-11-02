@@ -1,9 +1,9 @@
 Network Intrusion Detection System (NIDS) using Machine Learning
- Project Overview
+Project Overview
 
 This project focuses on developing a Network Intrusion Detection System (NIDS) that leverages supervised machine learning algorithms to identify and classify network attacks. Using benchmark datasets like NSL-KDD or CICIDS2017, the system aims to detect malicious network activity and enhance cybersecurity awareness.
 
- Milestone 1: Data Preparation
+Milestone 1: Data Preparation
 Week 1 – Project Initialization and Dataset Acquisition
 
 Objectives:
@@ -44,7 +44,7 @@ Encoded and normalized feature set.
 
 Train-test split summary.
 
- Milestone 2: Feature Engineering and Model Development
+Milestone 2: Feature Engineering and Model Development
 Week 3 – Feature Engineering and Selection
 
 Objectives:
@@ -87,11 +87,11 @@ Performance evaluation reports.
 
 Comparison of model metrics.
 
- Final Evaluation and Model Comparison
+Final Evaluation and Model Comparison
 
 Three supervised machine learning models—Random Forest, Support Vector Machine (SVM), and Logistic Regression—were evaluated using the top 10 most significant features identified via Random Forest feature importance.
 
- Random Forest
+Random Forest
 
 Accuracy: 99.81%
 
@@ -101,7 +101,7 @@ Demonstrated high consistency and robustness, effectively handling both majority
 
 Proven to be the most reliable model for real-world network intrusion detection.
 
- Support Vector Machine (SVM)
+Support Vector Machine (SVM)
 
 Accuracy: 94.46%
 
@@ -111,7 +111,7 @@ Slightly lower performance in minority classes (e.g., Class 4 and 5).
 
 Suitable for balanced datasets with moderate complexity.
 
- Logistic Regression
+Logistic Regression
 
 Accuracy: 91.76%
 
@@ -121,15 +121,20 @@ Performs well as a baseline model or for resource-constrained environments.
 
 Offers interpretability and simplicity.
 
- Summary
+Summary
 
 All three models showcased strong results, validating the data preprocessing and feature engineering quality.
 Among them, Random Forest outperformed the others, providing the best trade-off between accuracy, precision, and scalability—making it the most suitable choice for a production-level Network Intrusion Detection System.
 
- Technologies Used
+Technologies Used
 
 Language: Python
 
 Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
 
 Datasets: NSL-KDD / CICIDS2017
+
+
+
+
+ 
