@@ -1,8 +1,8 @@
-<h1 align="center">💻 Network Intrusion Detection System (NIDS) using Machine Learning</h1>
+<h1 align="center"> Network Intrusion Detection System (NIDS) using Machine Learning</h1>
 
 ---
 
-<h2>📘 Project Overview</h2>
+<h2> Project Overview</h2>
 
 <p>
 This project focuses on developing a <b>Network Intrusion Detection System (NIDS)</b> that leverages 
@@ -13,7 +13,7 @@ the system aims to detect malicious network activity and enhance cybersecurity a
 
 ---
 
-<h2>🏁 Milestone 1: Data Preparation</h2>
+<h2> Milestone 1: Data Preparation</h2>
 
 <h3>Week 1 – Project Initialization and Dataset Acquisition</h3>
 
@@ -53,7 +53,7 @@ the system aims to detect malicious network activity and enhance cybersecurity a
 
 ---
 
-<h2>🚀 Milestone 2: Feature Engineering and Model Development</h2>
+<h2>Milestone 2: Feature Engineering and Model Development</h2>
 
 <h3>Week 3 – Feature Engineering and Selection</h3>
 
@@ -96,7 +96,7 @@ the system aims to detect malicious network activity and enhance cybersecurity a
 
 ---
 
-<h2>📊 Final Evaluation and Model Comparison</h2>
+<h2> Final Evaluation and Model Comparison</h2>
 
 <p>
 Three supervised machine learning models—<b>Random Forest</b>, <b>Support Vector Machine (SVM)</b>, 
@@ -134,7 +134,7 @@ making it ideal for production-level network intrusion detection.</p>
 
 ---
 
-<h2>🧠 Technologies Used</h2>
+<h2> Technologies Used</h2>
 
 <table>
 <tr><th>Category</th><th>Tools</th></tr>
@@ -145,7 +145,7 @@ making it ideal for production-level network intrusion detection.</p>
 
 ---
 
-<h2>📅 Project Timeline Summary</h2>
+<h2> Project Timeline Summary</h2>
 
 <table>
 <tr><th>Week</th><th>Milestone</th><th>Focus Area</th></tr>
