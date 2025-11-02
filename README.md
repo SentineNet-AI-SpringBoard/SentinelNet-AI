@@ -1,140 +1,164 @@
-Network Intrusion Detection System (NIDS) using Machine Learning
-Project Overview
+<h1 align="center">💻 Network Intrusion Detection System (NIDS) using Machine Learning</h1>
+
+---
+
+<h2>📘 Project Overview</h2>
+
+<p>
+This project focuses on developing a <b>Network Intrusion Detection System (NIDS)</b> that leverages 
+<b>supervised machine learning algorithms</b> to identify and classify network attacks. 
+Using benchmark datasets like <b>NSL-KDD</b> or <b>CICIDS2017</b>, 
+the system aims to detect malicious network activity and enhance cybersecurity awareness.
+</p>
+
+---
+
+<h2>🏁 Milestone 1: Data Preparation</h2>
+
+<h3>Week 1 – Project Initialization and Dataset Acquisition</h3>
+
+<b>Objectives:</b>
+<ul>
+<li>Define project goals and expected outcomes.</li>
+<li>Download and explore the <b>NSL-KDD</b> or <b>CICIDS2017</b> dataset.</li>
+<li>Understand the dataset’s structure, attributes, and attack types.</li>
+<li>Perform <b>basic statistical analysis</b> and <b>data validation</b>.</li>
+</ul>
+
+<b>Deliverables:</b>
+<ul>
+<li>Dataset acquired and verified.</li>
+<li>Exploratory data analysis report.</li>
+<li>Documentation of dataset insights and statistics.</li>
+</ul>
+
+---
+
+<h3>Week 2 – Data Cleaning and Preprocessing</h3>
+
+<b>Objectives:</b>
+<ul>
+<li>Handle <b>missing values</b>, <b>duplicates</b>, and <b>irrelevant features</b>.</li>
+<li>Apply <b>encoding techniques</b> for categorical features.</li>
+<li><b>Normalize</b> or <b>standardize</b> numerical columns.</li>
+<li>Split the dataset into <b>training</b> and <b>testing</b> sets.</li>
+</ul>
+
+<b>Deliverables:</b>
+<ul>
+<li>Cleaned dataset ready for model training.</li>
+<li>Encoded and normalized feature set.</li>
+<li>Train-test split summary.</li>
+</ul>
+
+---
+
+<h2>🚀 Milestone 2: Feature Engineering and Model Development</h2>
+
+<h3>Week 3 – Feature Engineering and Selection</h3>
+
+<b>Objectives:</b>
+<ul>
+<li>Analyze <b>feature importance</b> to determine key indicators.</li>
+<li>Use <b>correlation analysis</b> or <b>PCA</b> for dimensionality reduction.</li>
+<li>Create new derived features if beneficial.</li>
+</ul>
+
+<b>Deliverables:</b>
+<ul>
+<li>Finalized list of top features.</li>
+<li>Visualization of feature relationships.</li>
+<li>Documentation of feature selection methods.</li>
+</ul>
+
+---
+
+<h3>Week 4 – Supervised Model Training</h3>
+
+<b>Objectives:</b>
+<ul>
+<li>Train supervised ML models such as <b>Random Forest</b>, <b>SVM</b>, and <b>Logistic Regression</b>.</li>
+<li>Evaluate performance using:</li>
+<ul>
+<li><b>Accuracy</b></li>
+<li><b>Precision</b></li>
+<li><b>Recall</b></li>
+<li><b>F1-score</b></li>
+</ul>
+</ul>
+
+<b>Deliverables:</b>
+<ul>
+<li>Trained model files.</li>
+<li>Performance evaluation reports.</li>
+<li>Comparison of model metrics.</li>
+</ul>
+
+---
+
+<h2>📊 Final Evaluation and Model Comparison</h2>
+
+<p>
+Three supervised machine learning models—<b>Random Forest</b>, <b>Support Vector Machine (SVM)</b>, 
+and <b>Logistic Regression</b>—were evaluated using the top 10 most significant features identified via 
+Random Forest feature importance.
+</p>
 
-This project focuses on developing a Network Intrusion Detection System (NIDS) that leverages supervised machine learning algorithms to identify and classify network attacks. Using benchmark datasets like NSL-KDD or CICIDS2017, the system aims to detect malicious network activity and enhance cybersecurity awareness.
+<h3>Random Forest</h3>
+<ul>
+<li><b>Accuracy:</b> 99.81%</li>
+<li>Delivered outstanding performance across all classes.</li>
+<li>Demonstrated high consistency and robustness.</li>
+<li>Most reliable model for real-world intrusion detection.</li>
+</ul>
 
-Milestone 1: Data Preparation
-Week 1 – Project Initialization and Dataset Acquisition
+<h3>Support Vector Machine (SVM)</h3>
+<ul>
+<li><b>Accuracy:</b> 94.46%</li>
+<li>Captured complex nonlinear patterns effectively.</li>
+<li>Slightly lower performance in minority classes.</li>
+<li>Suitable for balanced datasets with moderate complexity.</li>
+</ul>
 
-Objectives:
+<h3>Logistic Regression</h3>
+<ul>
+<li><b>Accuracy:</b> 91.76%</li>
+<li>Reliable for dominant classes but weaker for minority ones.</li>
+<li>Excellent baseline model with interpretability and simplicity.</li>
+</ul>
 
-Define project goals and expected outcomes.
+<p><b>Summary:</b>  
+All three models showed strong performance, confirming the quality of data preprocessing and feature selection.  
+Among them, <b>Random Forest</b> achieved the best accuracy, precision, and scalability, 
+making it ideal for production-level network intrusion detection.</p>
 
-Download and explore the NSL-KDD or CICIDS2017 dataset.
+---
 
-Understand the dataset’s structure, attributes, and attack types.
+<h2>🧠 Technologies Used</h2>
 
-Perform basic statistical analysis and data validation.
+<table>
+<tr><th>Category</th><th>Tools</th></tr>
+<tr><td><b>Language</b></td><td>Python</td></tr>
+<tr><td><b>Libraries</b></td><td>Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</td></tr>
+<tr><td><b>Datasets</b></td><td>NSL-KDD / CICIDS2017</td></tr>
+</table>
 
-Deliverables:
+---
 
-Dataset acquired and verified.
+<h2>📅 Project Timeline Summary</h2>
 
-Exploratory data analysis report.
+<table>
+<tr><th>Week</th><th>Milestone</th><th>Focus Area</th></tr>
+<tr><td><b>1</b></td><td>Project Initialization</td><td>Dataset Acquisition & Understanding</td></tr>
+<tr><td><b>2</b></td><td>Data Preprocessing</td><td>Cleaning, Encoding, Splitting</td></tr>
+<tr><td><b>3</b></td><td>Feature Engineering</td><td>Feature Importance & Reduction</td></tr>
+<tr><td><b>4</b></td><td>Model Training</td><td>ML Algorithms & Evaluation</td></tr>
+<tr><td><b>5</b></td><td>Final Evaluation</td><td>Model Comparison & Summary Insights</td></tr>
+</table>
 
-Documentation of dataset insights and statistics.
+---
 
-Week 2 – Data Cleaning and Preprocessing
 
-Objectives:
 
-Handle missing values, duplicates, and irrelevant features.
 
-Apply encoding techniques for categorical features.
 
-Normalize or standardize numerical columns.
-
-Split the dataset into training and testing sets.
-
-Deliverables:
-
-Cleaned dataset ready for model training.
-
-Encoded and normalized feature set.
-
-Train-test split summary.
-
-Milestone 2: Feature Engineering and Model Development
-Week 3 – Feature Engineering and Selection
-
-Objectives:
-
-Analyze feature importance to determine key indicators.
-
-Use correlation analysis or PCA for dimensionality reduction.
-
-Create new derived features if beneficial.
-
-Deliverables:
-
-Finalized list of top features.
-
-Visualization of feature relationships.
-
-Documentation of feature selection methods.
-
-Week 4 – Supervised Model Training
-
-Objectives:
-
-Train supervised ML models such as Random Forest, SVM, and Logistic Regression.
-
-Evaluate performance using:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-Deliverables:
-
-Trained model files.
-
-Performance evaluation reports.
-
-Comparison of model metrics.
-
-Final Evaluation and Model Comparison
-
-Three supervised machine learning models—Random Forest, Support Vector Machine (SVM), and Logistic Regression—were evaluated using the top 10 most significant features identified via Random Forest feature importance.
-
-Random Forest
-
-Accuracy: 99.81%
-
-Delivered outstanding performance across all classes.
-
-Demonstrated high consistency and robustness, effectively handling both majority and minority categories.
-
-Proven to be the most reliable model for real-world network intrusion detection.
-
-Support Vector Machine (SVM)
-
-Accuracy: 94.46%
-
-Captured complex nonlinear patterns effectively.
-
-Slightly lower performance in minority classes (e.g., Class 4 and 5).
-
-Suitable for balanced datasets with moderate complexity.
-
-Logistic Regression
-
-Accuracy: 91.76%
-
-Reliable for dominant classes but less effective for minority ones.
-
-Performs well as a baseline model or for resource-constrained environments.
-
-Offers interpretability and simplicity.
-
-Summary
-
-All three models showcased strong results, validating the data preprocessing and feature engineering quality.
-Among them, Random Forest outperformed the others, providing the best trade-off between accuracy, precision, and scalability—making it the most suitable choice for a production-level Network Intrusion Detection System.
-
-Technologies Used
-
-Language: Python
-
-Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
-
-Datasets: NSL-KDD / CICIDS2017
-
-
-
-
- 
