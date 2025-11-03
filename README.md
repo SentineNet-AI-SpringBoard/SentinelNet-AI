@@ -53,4 +53,57 @@
   * **Testing set (20%)** – used to evaluate model performance on unseen data.
 * Ensured both subsets have a **balanced distribution** of attack and normal traffic records.
 * Saved the final preprocessed datasets for use in the **next milestones**, where different ML models (like Random Forest and SVM) will be trained and compared.
+### **Milestone 2:**
+*  Feature Engineering, Supervised Model Training, and Evaluation
+Feature Engineering
 
+Conducted correlation analysis to remove redundant and highly correlated features.
+
+Applied Principal Component Analysis (PCA) to reduce feature dimensions while retaining 90% of the data’s variance.
+
+Trained a Random Forest model to determine the Top 10 most informative features for attack classification.
+
+Extracted and visualized these Top 10 features to understand their importance in detecting attacks.
+
+Supervised Model Training
+
+Three machine learning models were trained using only the Top 10 selected features:
+
+Random Forest Classifier with 50 trees
+
+Support Vector Machine (SVM) with RBF kernel
+
+Logistic Regression with 1000 max iterations
+
+Model Evaluation
+
+Random Forest achieved 99.20% accuracy with strong precision, recall, and F1-score.
+
+SVM achieved 95.80% accuracy with good performance on nonlinear data.
+
+Logistic Regression achieved 94.33% accuracy and served as a strong baseline model.
+
+Key Insights
+
+PCA effectively reduced data complexity without significant loss of accuracy.
+
+Random Forest identified the most relevant attack-related features.
+
+All models achieved over 94% accuracy, reflecting solid dataset quality and preprocessing steps.
+### ***Milestone 3:**
+ Anomaly Detection with Unsupervised Learning
+K-Means Clustering
+
+Applied K-Means with 2 clusters to classify data as normal or abnormal.
+
+Detected around 1.74% anomalies based on distances from cluster centers.
+
+Performed well for distinct patterns but was less sensitive to minor anomalies.
+
+Isolation Forest
+
+Used Isolation Forest with 100 decision trees and automatic contamination detection.
+
+Detected approximately 20.78% anomalies, demonstrating higher sensitivity to rare and subtle patterns.
+
+Better suited for complex and varied network anomalies.
