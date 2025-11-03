@@ -125,7 +125,7 @@ The datasets used in this project are derived from the CICIDS 2017 - Wednesday W
 
 Due to large file sizes, the datasets cannot be uploaded to GitHub. They are securely stored and can be accessed using the following Google Drive link:
 
-**Dataset Drive Link:** [Data]([https://drive.google.com/your-drive-link-here](https://drive.google.com/drive/folders/1foF7ZF19cuIG8njbmZSc-9Yz61q7f3MH?usp=sharing))
+**Dataset Drive Link:** [Data]([https://drive.google.com/drive/folders/1foF7ZF19cuIG8njbmZSc-9Yz61q7f3MH?usp=sharing])
 
 Files Included:
 
