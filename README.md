@@ -56,37 +56,59 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
    
     - Performed correlation analysis to identify highly correlated features.
     
-    - Applied Principal Component Analysis (PCA) for dimensionality reduction while retaining 95.6% variance.  
+    - Applied Principal Component Analysis (PCA) for dimensionality reduction while retaining 90% variance.  
     
-    - Scaled and transformed the dataset to enhance model learning efficiency.  
+    - Trained a Random Forest model to identify Top 10 most important features contributing to attack detection.
     
     - Extracted and visualized the Top 10 most important features influencing attack detection using Random Forest.
 
 2. Supervised Model Training
-    - Trained and compared three supervised models:
+
+    - Trained and compared three models using only the Top 10 selected features:
 
        - Random Forest Classifier (n_estimators = 50)  
 
        - Support Vector Machine (SVM) with RBF kernel  
 
-      - Logistic Regression with max_iter = 1000  
+       - Logistic Regression (max_iter = 1000)  
 
-3. Model Evaluation
+4. Model Evaluation
     
-    - Random Forest: Achieved 99.92% accuracy, best overall performance with near-perfect precision, recall, and F1-score.  
+    - Random Forest: Achieved 99.20% accuracy, best overall performance with near-perfect precision, recall, and F1-score.  
     
-    - Logistic Regression: Achieved 99.21% accuracy, efficient and stable across most classes.  
+    - Logistic Regression: Achieved 94.33% accuracy.
     
-    - SVM: Achieved 98.93% accuracy, strong nonlinear modeling with slightly lower recall on rare attacks.
+    - SVM: Achieved 95.80% accuracy, good for nonlinear patterns, slightly lower recall for rare attacks.
 
-4. Key insights
+5. Key insights
     
     - PCA reduced data dimensions significantly while maintaining accuracy.  
     
-    - Random Forest identified critical attack-related features.  
+    - Random Forest identified critical attack-related features(top 10 features).  
     
-    - All models achieved accuracy above 98%, confirming high data quality and robust preprocessing.
+    - All models achieved above 94% accuracy, proving strong dataset quality and effective preprocessing.
+      
+## Milestone 3: Anomaly Detection with Unsupervised Learning
 
+1. K-Means Clustering
+
+    - Applied K-Means (n_clusters=2) for normal vs. abnormal traffic.
+
+    - Detected 1.74% anomalies based on distance from cluster centroids.
+
+    - Effective for clear separations but less sensitive to subtle variations.
+
+2. Isolation Forest
+
+    - Applied Isolation Forest (n_estimators=100, contamination='auto').
+
+    - Detected ~20.78% anomalies, showing higher sensitivity to rare and hidden attack patterns.
+
+    - More effective for identifying complex and subtle network anomalies.
+
+3. Conclusion
+   Unsupervised anomaly detection was performed using the top 10 selected features. K-Means detected 1.74% anomalies, while Isolation Forest identified 20.78%. K-Means was efficient but missed subtle variations. Isolation Forest isolated complex, rare anomalies more effectively.
+   
 ## Tech Stack
 
 - **Language:** Python  
@@ -95,5 +117,24 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 
 - **Dataset:** CICIDS 2017 - Wednesday Working Hours subset  
 
-- **Environment:** Google Colab  
+- **Environment:** Google Colab
+
+## Dataset Access
+
+The datasets used in this project are derived from the CICIDS 2017 - Wednesday Working Hours subset, which contains both normal and attack network traffic records.
+
+Due to large file sizes, the datasets cannot be uploaded to GitHub. They are securely stored and can be accessed using the following Google Drive link:
+
+**Dataset Drive Link:** [Data]([https://drive.google.com/your-drive-link-here](https://drive.google.com/drive/folders/1foF7ZF19cuIG8njbmZSc-9Yz61q7f3MH?usp=sharing))
+
+Files Included:
+
+Wednesday.csv - Original dataset extracted from the CICIDS 2017 collection. Used as the raw source for preprocessing.
+
+cleaned_data.csv - Cleaned and filtered dataset after removing missing values, duplicates, and irrelevant columns. Used as the base for further transformation.
+
+sentinelnet_encoded.csv - Encoded and standardized dataset where categorical labels were converted using LabelEncoder. Used as the main dataset for both supervised and unsupervised model training.
+
+Dataset Source:
+Official CICIDS 2017 Dataset - https://www.unb.ca/cic/datasets/ids-2017.html
 
