@@ -96,7 +96,7 @@ K-Means Clustering
 
 Applied K-Means with 2 clusters to classify data as normal or abnormal.
 
-Detected around 1.74% anomalies based on distances from cluster centers.
+Detected around 2.212% anomalies based on distances from cluster centers.
 
 Performed well for distinct patterns but was less sensitive to minor anomalies.
 
@@ -104,6 +104,6 @@ Isolation Forest
 
 Used Isolation Forest with 100 decision trees and automatic contamination detection.
 
-Detected approximately 20.78% anomalies, demonstrating higher sensitivity to rare and subtle patterns.
+Detected approximately 5.000% anomalies, demonstrating higher sensitivity to rare and subtle patterns.
 
 Better suited for complex and varied network anomalies.
