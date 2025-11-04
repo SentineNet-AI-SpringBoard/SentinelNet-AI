@@ -122,52 +122,50 @@ It contains **real-world, labeled network traffic** captured over several days, 
 
 ---
 
-## Milestone 2: Feature Engineering, Selection & Random Forest Training
+#  Milestone 2:
+## **Week 3: Feature Engineering, Feature Selection & PCA Analysis**
 
-### Week 3: Feature Engineering and Selection
-1. **Load and Preprocess Dataset**  
-   1.1 Load the cleaned dataset saved from Milestone 1  
-   1.2 Separate features (`X`) and target (`y`)  
-   1.3 Encode categorical variables using Label Encoding  
-   1.4 Scale numerical features using StandardScaler (important for PCA)  
+### 1. Load and Prepare Data
+- Load cleaned dataset
+- Separate features and target
+- Encode categorical variables
+- Scale numerical features
 
-2. **Dimensionality Reduction Using PCA**  
-   2.1 Apply PCA to scaled numeric features  
-   2.2 Decide the number of components  
-   2.3 Visualize the first two principal components to observe separation between normal and attack traffic  
-   2.4 Optionally, save PCA-transformed features for further modeling  
+### 2. Dimensionality Reduction with PCA
+- Apply PCA to scaled data
+- Determine optimal components
+- Visualize principal components
 
-3. **Feature Importance with Random Forest**  
-   3.1 Train a Random Forest Classifier on original or PCA-transformed features  
-   3.2 Extract feature importance scores from the trained model  
-   3.3 Rank features based on importance to select top features for modeling  
+### 3. Feature Importance via Random Forest
+- Train Random Forest for feature ranking
+- Extract and visualize top important features
 
-4. **Correlation / Redundancy Analysis**  
-   4.1 Compute correlation matrix for numeric features  
-   4.2 Compare with PCA components to decide which features to retain  
-   4.3 Use top RF features for further training or refinement  
-
-### Week 4: Random Forest Model Training
-1. **Train/Test Split**  
-   1.1 Split the dataset into training and testing sets (from Milestone 1)  
-   1.2 Stratify the split to maintain class distribution  
-
-2. **Model Training**  
-   2.1 Train a Random Forest Classifier with `n_estimators=50` and `n_jobs=-1`  
-   2.2 Fit the model on the training data  
-
-3. **Model Evaluation**  
-   3.1 Predict on the test set  
-   3.2 Compute accuracy, precision, recall, F1-score  
-   3.3 Generate a classification report for each class  
-
-4. **Feature Importance Visualization**  
-   4.1 Plot top features from RF as a horizontal bar chart  
-   4.2 Select top features  
-   4.3 Visualize top features  
-
-5. **Feature Selection Refinement**  
-   5.1 Select top RF features or PCA components to retrain the model  
-   5.2 Refine model based on performance metrics if needed  
+### 4. Correlation & Redundancy Analysis
+- Compute feature correlations
+- Compare PCA and RF-selected features
+- Select final feature set
 
 ---
+
+## **Week 4: Random Forest, SVM & Logistic Regression Model Training**
+
+### 1. Train-Test Split
+- Split dataset into training and testing sets
+- Maintain class balance (stratified split)
+
+### 2. Model Training
+- Train Random Forest, SVM, and Logistic Regression
+- Optimize hyperparameters for balanced accuracy
+
+### 3. Model Evaluation
+- Evaluate models on accuracy, precision, recall, and F1-score
+- Compare results across models
+
+### 4. Feature Importance Visualization
+- Plot top important features
+- Interpret feature impact on predictions
+
+### 5. Model Saving for Deployment
+- Save trained models using `joblib`
+- Store models in Google Drive for later use 
+
