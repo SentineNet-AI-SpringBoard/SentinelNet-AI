@@ -1,150 +1,202 @@
-# **SentinelNet-AI-Powered Network Intrusion Detection System (NIDS)**
-## Project overview : 
-An AI-powered Network Intrusion Detection System (NIDS) to classify network traffic as normal or malicious using machine learning. The system ingests network flow datasets, extracts features, trains classifiers, and produces alerts/logs for detected suspicious activity.
-## Dataset choosen for the Project :
- CICIDS2017 Dataset : **Wednesday-workingHours.pcap_ISCX.csv**
- 
-#  Milestone 1  
-##  What I Completed (Weeks 1 – 2)
+# SentinelNet – AI-Powered Network Intrusion Detection System (NIDS)
 
-### 1️. Dataset Acquisition & Inspection  
-➤ Downloaded the **Wednesday-workingHours** dataset and other relevant capture files from the **CICIDS 2017** dataset.  
-➤ Performed initial exploration using `.head()`, `.info()`, and `.describe()` to understand structure and content.  
-➤ Checked **unique values**, **class distribution**, and overall dataset balance between normal and attack traffic.  
-➤ Verified dataset shape and consistency across all columns.  
+## Project Overview
+SentinelNet-AI is an intelligent Network Intrusion Detection System (NIDS) that detects and classifies network traffic as normal or malicious using machine learning techniques.  
+The system processes network flow data, extracts relevant features, trains multiple models, and generates real-time alerts, logs, and reports for identified intrusions.
 
 ---
 
-### 2️. Data Cleaning & Validation  
-➤ Removed duplicates to ensure unique network-flow entries.  
-➤ Handled missing values by imputing (mean / median) or removing depending on context.  
-➤ Dropped irrelevant or redundant columns that added no analytical value.  
-➤ Confirmed that all numeric and categorical columns were clean and valid.  
+## Milestone Summary
+
+| Milestone | Focus Area | Techniques Used | Key Outcome |
+|------------|-------------|-----------------|--------------|
+| 1 | Data Cleaning, Encoding & Scaling | LabelEncoder, StandardScaler | Prepared clean and encoded dataset for modeling |
+| 2 | Feature Engineering & Baseline Models | PCA, Random Forest Feature Importance | Built initial RF/SVM/LR models; baseline accuracy ≈ 93% |
+| 3 | Model Tuning & Anomaly Detection | Isolation Forest, K-Means, RandomizedSearchCV | Compared tuned RF/LR/SVM models; analyzed performance |
+| 4 | Real-Time Prediction, Alert Logging, Final Optimization | Streaming Simulation, Logging, SMOTE, PCA, Ensemble | Completed IDS pipeline, added live simulation and alerting |
 
 ---
 
-### 3️. Encoding Categorical Features  
-➤ Converted non-numeric attributes into numerical form using:  
- ▪ **Label Encoding** – for binary or ordered categorical data.  
- ▪ **One-Hot Encoding** – for unordered categories.  
-➤ Ensured encoded features were ready for ML pipelines.  
-➤ Saved encoded dataset:  
- `/content/drive/MyDrive/AI Sentinet Project/Encoded_wednesday.csv`  
+# Milestone 1  
+## Weeks 1 – 2 : Dataset Cleaning, Encoding and Preprocessing
+
+### 1. Dataset Acquisition and Inspection
+- Downloaded the Wednesday-workingHours dataset from the CICIDS 2017 dataset.
+- Inspected dataset using `.head()`, `.info()`, and `.describe()` to understand data structure and balance.
+- Verified distribution of normal and attack flows.
+
+### 2. Data Cleaning and Validation
+- Removed duplicate and irrelevant records.
+- Handled missing values by imputation or removal.
+- Ensured data consistency and valid numeric types.
+
+### 3. Encoding Categorical Features
+- Applied Label Encoding and One-Hot Encoding to convert categorical features.
+- Saved encoded dataset for model training:  
+  `Encoded_wednesday.csv`
+
+### 4. Scaling and Normalization
+- Standardized features using `StandardScaler` to normalize feature ranges.
+
+### 5. Train/Test Split
+- Used stratified sampling in `train_test_split()` to preserve class ratios.
+
+### 6. Exploratory Data Analysis (EDA)
+- Performed visual and statistical exploration of features.
+- Generated boxplots, histograms, and correlation heatmaps to identify relationships.
+- Saved final datasets:  
+  `Cleaned_wednesday.csv`, `Encoded_wednesday.csv`
 
 ---
 
-### 4️. Scaling & Normalization  
-➤ Standardized all numeric features using **StandardScaler** (mean = 0, std = 1).  
-➤ Ensured fair comparison of features for PCA and model training.  
+# Milestone 2  
+## Weeks 3 – 4 : Feature Engineering and Baseline Model Training
+
+### 1. Feature Engineering and Dataset Preparation
+- Loaded preprocessed data from Milestone 1.
+- Split dataset into features (X) and labels (y).
+- Encoded and scaled remaining variables.
+
+### 2. Dimensionality Reduction – PCA
+- Applied Principal Component Analysis (PCA) to reduce redundancy.
+- Selected components explaining maximum variance.
+
+### 3. Feature Importance and Selection
+- Used Random Forest to rank features by importance.
+- Chose the Top 10 features contributing most to detection accuracy.
+
+### 4. Correlation and Redundancy Analysis
+- Computed correlation matrix to identify multicollinearity.
+- Cross-checked feature overlap using PCA results.
+
+### 5. Baseline Model Training
+- Trained Random Forest, SVM, and Logistic Regression models.
+- Evaluated accuracy, precision, recall, and F1-score.
+
+**Model Performance (Before Tuning)**
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+|--------|-----------|------------|----------|-----------|
+| Random Forest | 0.929 | 0.942 | 0.929 | 0.930 |
+| SVM | 0.865 | 0.853 | 0.865 | 0.846 |
+| Logistic Regression | 0.868 | 0.871 | 0.868 | 0.853 |
+
+- Random Forest achieved the best baseline performance with balanced precision and recall.
+
+### 6. Feature Visualization and Refinement
+- Visualized top-ranked features using bar charts.
+- Saved reduced feature dataset for subsequent milestones.
 
 ---
 
-### 5️. Train / Test Split  
-➤ Used `train_test_split(..., random_state = 42)` for reproducible partitioning.  
-➤ Applied **stratified sampling** to maintain class balance.  
-➤ Saved separate **train** and **test** sets for later milestones.  
+# Milestone 3  
+## Weeks 5 – 6 : Model Tuning and Anomaly Detection
+
+### 1. Anomaly Detection (Unsupervised)
+- Implemented K-Means and Isolation Forest algorithms for anomaly detection.
+- Preprocessed and scaled the dataset before clustering.
+- Isolation Forest outperformed K-Means in detecting rare intrusions.
+
+### 2. Supervised Model Evaluation
+- Evaluated Random Forest, SVM, and Logistic Regression models on labeled data.
+- Measured classification metrics for performance comparison.
+
+### 3. Hyperparameter Tuning
+- Used RandomizedSearchCV to optimize Random Forest and Logistic Regression.
+- Improved generalization while avoiding overfitting.
+- Skipped SVM tuning due to computational cost and used the pre-trained version.
+
+### 4. Model Evaluation (After Tuning)
+
+**Model Performance (After Tuning)**
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+|--------|-----------|------------|----------|-----------|
+| Random Forest (Tuned) | 0.929 | 0.964 | 0.722 | 0.806 |
+| Logistic Regression (Tuned) | 0.868 | 0.709 | 0.400 | 0.455 |
+| SVM (Pre-trained) | 0.865 | 0.470 | 0.288 | 0.298 |
+
+- Random Forest remained the best model even after tuning.
+- Slight drop in recall was observed, possibly due to data imbalance and stricter model boundaries.
+
+### 5. Confusion Matrix and ROC Analysis
+- Plotted confusion matrices and ROC curves for model comparison.
+- Calculated AUC values to assess discrimination performance.
+
+### 6. Summary
+- Unsupervised anomaly detection completed successfully.
+- Supervised models evaluated and tuned.
+- Tuned Random Forest selected as the final model for real-time simulation.
 
 ---
 
-### 6️. Exploratory Data Analysis (EDA)  
-➤ Generated statistical summaries and key visualizations:  
- ▪ Distribution plots and boxplots for outlier detection.  
- ▪ Correlation heatmap for feature relationships.  
-➤ Saved cleaned / encoded files as:  
- ▪ `Cleaned_wednesday.csv`  
- ▪ `Encoded_wednesday.csv`  
+# Milestone 4  
+## Weeks 7 – 8 : Real-Time Prediction, Alert Logging, and Final Optimization
+
+### 1. Real-Time Prediction Simulation
+- Simulated live traffic classification using the tuned Random Forest model.
+- Used a 1,500-packet subset to imitate real-time packet flow.
+- Processed data in mini-batches for smooth simulation.
+- Saved results as:
+  - `week7_predictions.csv` (sample subset)
+  - `week7_predictions_full.csv` (complete dataset results).
+
+### 2. Alert Generation and Logging
+- Generated alerts for packets classified as intrusions.
+- Logged detection events into `alert_logs.txt` with timestamps.
+- Created summary reports showing total packets, detected intrusions, and percentage of attacks:
+  - `week7_alert_summary.csv`
+  - `week7_alert_summary.txt`
+
+### 3. Readable Reports and Visualization
+- Compiled a readable report `week7_readable_report.txt` summarizing predictions and statistics.
+- Visualized:
+  - Bar chart of predicted traffic types.
+  - Pie chart showing benign vs intrusion ratios.
+- Combined outputs into `week7_final_results.csv`.
+
+### 4. Reason for Using 1,500 Packets Instead of Full Dataset
+| Reason | Explanation |
+|--------|--------------|
+| Efficiency | The full dataset (≈682k packets) would take hours to process. |
+| Balance | The 1,500-sample contains both benign and malicious packets, giving a realistic mix. |
+| Resource Limitations | Prevents memory overuse and runtime issues in Google Colab. |
+| Deployment Readiness | A smaller dataset allows smooth web simulation performance. |
 
 ---
 
-#  Milestone 2  
-##  What I Completed (Weeks 3 – 4)
-
-### 1️. Feature Engineering & Dataset Preparation  
-➤ Loaded the cleaned dataset from **Milestone 1**.  
-➤ Split data into **features (X)** and **target (y)**.  
-➤ Encoded remaining categorical variables using **LabelEncoder**.  
-➤ Scaled numeric columns with **StandardScaler** to normalize variance and prepare for PCA.  
+## Final Outcomes
+- Completed end-to-end intrusion detection and alert generation workflow.  
+- Achieved approximately 93 % accuracy with the tuned Random Forest model.  
+- Real-time alert and logging system implemented successfully.  
+- Results saved in CSV and text formats for readable analysis.  
+- Model is ready to be exported for website deployment in future work.
 
 ---
 
-### 2️. Dimensionality Reduction — PCA  
-➤ Applied **Principal Component Analysis (PCA)** on scaled data to reduce dimensionality.  
-➤ Determined the optimal number of components via explained-variance ratio.  
-➤ Visualized the first two components to observe class separation between *normal* and *attack* flows.  
-➤ Saved PCA-transformed dataset for later comparison and analysis.  
+## Key Project Files
+
+| File / Folder | Description |
+|----------------|-------------|
+| Cleaned_wednesday.csv | Cleaned dataset |
+| Encoded_wednesday.csv | Encoded dataset |
+| Wednesday_top10_features.csv | Top 10 selected features |
+| rf_model_tuned.pkl | Tuned Random Forest (used for deployment) |
+| week7_predictions.csv | Real-time simulation results |
+| alert_logs.txt | Generated intrusion logs |
+| week7_alert_summary.csv | Summary of detected intrusions |
+| week7_final_results.csv | Consolidated result file |
 
 ---
 
-### 3️. Feature Importance & Selection (Random Forest)  
-➤ Trained a **Random Forest Classifier** on both original and PCA-transformed features.  
-➤ Extracted **feature-importance scores** to rank the top predictive attributes.  
-➤ Visualized importances with horizontal bar charts.  
-➤ Combined Random Forest rankings with PCA insights to select the most relevant features.  
+## Conclusion
+SentinelNet demonstrates how AI and machine learning can enhance network security by detecting malicious activity in real-time.  
+The project evolved through four milestones — data preprocessing, feature engineering, model tuning, and alert generation — achieving high accuracy and practical performance.  
+The tuned Random Forest model powers the live website for responsive and accurate network intrusion detection.
 
 ---
 
-### 4️. Correlation & Redundancy Analysis  
-➤ Computed a **correlation matrix** to identify multicollinearity among numeric variables.  
-➤ Cross-checked correlation findings with PCA results to eliminate overlapping or redundant features.  
-➤ Finalized a refined feature subset for supervised training.  
-
----
-
-### 5️. Random Forest Model Training  
-➤ Utilized the existing **train / test** split from Milestone 1 with stratified sampling.  
-➤ Trained **Random Forest Classifier** with parameters:  
- ▪ `n_estimators = 50`  
- ▪ `n_jobs = -1` (for parallel processing)  
-➤ Evaluated performance using **Accuracy**, **Precision**, **Recall**, and **F1-Score**.  
-➤ Generated a detailed **classification report** for each class.  
-
----
-
-### 6️. Feature Visualization & Refinement  
-➤ Visualized top-ranked features using horizontal bar charts.  
-➤ Selected top features or PCA components for retraining.  
-➤ Compared refined model metrics to check for performance improvements.  
-➤ Saved final **trained model** and selected features for the next milestone (unsupervised anomaly detection).  
-
----
-
-# **Milestone 3**  
-## **What I Completed (Weeks 5 - 6)**
-
-###  Anomaly Detection with Unsupervised Learning  
-➤ Focused on identifying unusual network behavior without using labeled data.  
-➤ Implemented **K-Means Clustering** and **Isolation Forest** algorithms to detect traffic patterns deviating from normal flows.  
-➤ Preprocessed and scaled the dataset to ensure consistent feature distribution for clustering.  
-➤ Visualized clustering results to observe separation between normal and anomalous data points.  
-➤ Compared both models based on their ability to identify outliers and anomalies.  
-➤ Found that **Isolation Forest** was more effective at detecting rare attack events compared to K-Means.  
-➤ Selected **Isolation Forest** as the preferred model for anomaly detection due to its higher recall and sensitivity to subtle intrusions.
-
----
-
-###  Model Evaluation and Fine-Tuning  
-➤ Compared multiple supervised models — **Random Forest**, **Logistic Regression**, and **SVM** — to evaluate classification performance.  
-➤ Used metrics such as **Accuracy**, **Precision**, **Recall**, and **F1-Score** to measure model effectiveness.  
-➤ Selected the best-performing model based on evaluation results for further tuning.
-
----
-
-###  Hyperparameter Tuning with Cross-Validation  
-➤ Applied **RandomizedSearchCV** for optimizing model parameters through cross-validation.  
-➤ Tuned key parameters of Random Forest and Logistic Regression for better performance and generalization.  
-➤ Skipped SVM tuning due to high computational cost and used the pre-trained model for fair comparison.  
-➤ Compared tuned models to analyze performance improvements after optimization.
-
----
-
-###  Confusion Matrix and ROC Curve Analysis  
-➤ Generated **confusion matrices** to visually evaluate each model’s classification accuracy and misclassification patterns.  
-➤ Plotted **ROC Curves** and calculated **AUC (Area Under Curve)** scores to assess model discrimination capability.  
-➤ Observed that models with higher AUC and well-defined confusion matrices performed better in detecting attacks.  
-➤ Saved both **Confusion Matrix** and **ROC Curve** visualizations for final project documentation and analysis.
-
----
-
-**Summary:**  
-In **Week 5**, I developed and compared unsupervised models (K-Means, Isolation Forest) to detect anomalies.  
-In **Week 6**, I evaluated, tuned, and analyzed supervised models (RF, LR, SVM) to identify the best-performing classifier using detailed performance metrics, confusion matrices, and ROC curves.
+Developed by:  
+Moinak Ghosh  
+2025  
+AI-Powered Intrusion Detection System – SentinelNet Project
