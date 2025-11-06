@@ -1,1 +1,38 @@
+******************************************************************* Milestone 1 ***********************************************************************
 
+Cleaned_wednesday.csv
+Encoded_wednesday.csv
+
+******************************************************************* Milestone 2 ***********************************************************************
+
+Wednesday_top10_features.csv
+
+Saving Trained Models :
+rf_model.pkl
+svm_model.pkl
+lr_model.pkl
+
+Saving the Model performance results :
+model_performance_results.csv
+
+******************************************************************* Milestone 3 ***********************************************************************
+
+Week5_AnomalyDetection_Results.csv
+
+Saving the Tuned Models :
+rf_model_tuned.pkl
+lr_model_tuned.pkl
+svm_model_pretrained.pkl
+
+Saving Confusion matrix and ROC curve :
+Confusion_Matrix_Comparison.png
+ROC_Curve_Comparison.png
+
+******************************************************************* Milestone 4 ***********************************************************************
+
+week7_alert_summary.csv
+week7_alert_summary.txt
+week7_final_results.csv
+week7_predictions.csv
+week7_predictions_full.csv
+week7_readable_report.txt
