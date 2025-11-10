@@ -167,5 +167,63 @@ It contains **real-world, labeled network traffic** captured over several days, 
 
 ### 5. Model Saving for Deployment
 - Save trained models using `joblib`
-- Store models in Google Drive for later use 
+- Store models in Google Drive for later use
+
+#  **Milestone 3:**
+
+## **Week 5: Anomaly Detection using PCA, K-Means & Isolation Forest**
+
+### 1. Load Dataset  
+- Load the cleaned dataset prepared in previous milestones.  
+
+### 2. Data Preprocessing  
+- Drop non-numeric or irrelevant columns.  
+- Handle missing and infinite values.  
+- Apply feature scaling using **StandardScaler**.  
+
+### 3. Apply PCA  
+- Reduce feature dimensionality using **PCA** (retain ~95% variance).  
+- Visualize principal components and explained variance ratio.  
+
+### 4. K-Means Clustering  
+- Train **K-Means** on PCA-transformed data.  
+- Identify smallest cluster as anomaly group.  
+- Visualize clusters in PCA 2D space (red = anomaly, blue = normal).  
+
+### 5. Isolation Forest  
+- Train **Isolation Forest** for anomaly detection.  
+- Adjust contamination rate (~1%) to match expected anomaly ratio.  
+- Visualize anomaly vs normal samples and compare with K-Means results.  
+
+---
+
+## **Week 6: Model Evaluation and Fine-Tuning**
+
+### 1. Load Trained Models  
+- Load models from Google Drive:  
+  - `Random Forest`  
+  - `SVM`  
+  - `Logistic Regression`  
+- Ensure models are correctly imported with matching PCA configurations.  
+
+### 2. Scaling and PCA Transformation  
+- Apply the same **StandardScaler** and **PCA** used during model training.  
+- Ensure PCA feature counts match trained model expectations.  
+
+### 3. Evaluating Models (Summary)  
+- Evaluate all models on test data.  
+- Compare **Accuracy**, **Precision**, **Recall**, and **F1-score**.  
+- Display a summary comparison table.  
+
+### 4. Confusion Matrix  
+- Plot confusion matrices for all models.  
+- Analyze true positives, false positives, and false negatives.  
+- Identify best-performing model.  
+
+### 5. ROC Curve Comparison  
+- Generate **ROC curves** for each model separately.  
+- Calculate **AUC (Area Under Curve)** scores.  
+- Determine overall best model based on ROC-AUC and performance metrics.  
+
+---
 
