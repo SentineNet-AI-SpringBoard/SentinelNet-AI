@@ -91,7 +91,7 @@ Random Forest identified the most relevant attack-related features.
 
 All models achieved over 94% accuracy, reflecting solid dataset quality and preprocessing steps.
 
-Milestone 3: Anomaly Detection and Model Evaluation
+#### **Milestone 3: Anomaly Detection and Model Evaluation**
 
 
 Week 5: Anomaly Detection using Unsupervised Learning
