@@ -54,42 +54,34 @@
 * Ensured both subsets have a **balanced distribution** of attack and normal traffic records.
 * Saved the final preprocessed datasets for use in the **next milestones**, where different ML models (like Random Forest and SVM) will be trained and compared.
 ### **Milestone 2:**
-*  Feature Engineering, Supervised Model Training, and Evaluation
-Feature Engineering
+*** Feature Engineering and Model Training***
+Feature Engineering and Selection
 
-Conducted correlation analysis to remove redundant and highly correlated features.
+Used a Random Forest model to find which features have the biggest impact on intrusion detection.
 
-Applied Principal Component Analysis (PCA) to reduce feature dimensions while retaining 90% of the data’s variance.
+Performed correlation analysis and created a heatmap to identify features that were highly related to each other.
 
-Trained a Random Forest model to determine the Top 10 most informative features for attack classification.
+Applied PCA to reduce the number of features while keeping most of the useful information.
 
-Extracted and visualized these Top 10 features to understand their importance in detecting attacks.
+Chose the Top 10 most important features that help the models detect attacks more accurately.
 
-Supervised Model Training
+Saved this cleaned and reduced dataset for later training and model evaluation.
 
-Three machine learning models were trained using only the Top 10 selected features:
+Week 4: Model Training and Evaluation
 
-Random Forest Classifier with 50 trees
+Scaled all selected features so that the models receive uniform input values.
 
-Support Vector Machine (SVM) with RBF kernel
+Divided the dataset into 80% training and 20% testing for fair model evaluation.
 
-Logistic Regression with 1000 max iterations
+Trained and tested three different machine learning models:
 
-Model Evaluation
+Random Forest Classifier – reached 98.75% accuracy
 
-Random Forest achieved 99.20% accuracy with strong precision, recall, and F1-score.
+Support Vector Machine (SVM) – reached 87.51% accuracy
 
-SVM achieved 95.80% accuracy with good performance on nonlinear data.
+Logistic Regression – reached 86.69% accuracy
 
-Logistic Regression achieved 94.33% accuracy and served as a strong baseline model.
-
-Key Insights
-
-PCA effectively reduced data complexity without significant loss of accuracy.
-
-Random Forest identified the most relevant attack-related features.
-
-All models achieved over 94% accuracy, reflecting solid dataset quality and preprocessing steps.
+Compared model results by checking accuracy, precision, recall, and F1-score to see which model performed best
 
 #### **Milestone 3:**
 **Anomaly Detection and Model Evaluation**
