@@ -90,20 +90,28 @@ PCA effectively reduced data complexity without significant loss of accuracy.
 Random Forest identified the most relevant attack-related features.
 
 All models achieved over 94% accuracy, reflecting solid dataset quality and preprocessing steps.
-### ***Milestone 3:**
- Anomaly Detection with Unsupervised Learning
-K-Means Clustering
 
-Applied K-Means with 2 clusters to classify data as normal or abnormal.
+Milestone 3: Anomaly Detection and Model Evaluation
 
-Detected around 2.212% anomalies based on distances from cluster centers.
 
-Performed well for distinct patterns but was less sensitive to minor anomalies.
+Week 5: Anomaly Detection using Unsupervised Learning
 
-Isolation Forest
+Used unsupervised models like K-Means and Isolation Forest to find unusual patterns in network traffic.
 
-Used Isolation Forest with 100 decision trees and automatic contamination detection.
+Identified abnormal behavior that differs from normal activity, simulating zero-day attacks.
 
-Detected approximately 5.000% anomalies, demonstrating higher sensitivity to rare and subtle patterns.
+Created visual plots to show how normal and suspicious traffic are grouped.
 
-Better suited for complex and varied network anomalies.
+Checked the accuracy of anomaly detection by comparing results with the true labels in the test dataset.
+
+Week 6: Model Evaluation and Fine-Tuning
+
+Evaluated multiple models such as Random Forest, SVM, and Isolation Forest.
+
+Applied cross-validation to adjust model parameters and improve accuracy.
+
+Generated confusion matrices and ROC curves to visually compare model performance.
+
+Chose the best model based on F1-score and recall, which measure detection quality.
+
+Recorded all results and performance metrics for final reporting.
