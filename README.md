@@ -68,17 +68,17 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 
        - Random Forest Classifier (n_estimators = 50)  
 
-       - Support Vector Machine (SVM) with RBF kernel  
+       - Support Vector Machine (SVM)
 
        - Logistic Regression (max_iter = 1000)  
 
 4. Model Evaluation
     
-    - Random Forest: Achieved 99.20% accuracy, best overall performance with near-perfect precision, recall, and F1-score.  
+    - Random Forest: Achieved 99.57% accuracy, best overall performance with near-perfect precision, recall, and F1-score.  
     
-    - Logistic Regression: Achieved 94.33% accuracy.
+    - Logistic Regression: Achieved 87.95% accuracy.
     
-    - SVM: Achieved 95.80% accuracy, good for nonlinear patterns, slightly lower recall for rare attacks.
+    - SVM: Achieved 84.80% accuracy.
 
 5. Key insights
     
@@ -86,29 +86,51 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
     
     - Random Forest identified critical attack-related features(top 10 features).  
     
-    - All models achieved above 94% accuracy, proving strong dataset quality and effective preprocessing.
+    - All models successfully learned attack patterns, with Random Forest being the best performer.
       
 ## Milestone 3: Anomaly Detection with Unsupervised Learning
 
 1. K-Means Clustering
 
-    - Applied K-Means (n_clusters=2) for normal vs. abnormal traffic.
+    - Applied K-Means clustering using the optimal number of clusters (k = 5) determined through the Elbow Method and Silhouette Score to group different traffic behavior patterns and identify anomalies.
 
-    - Detected 1.74% anomalies based on distance from cluster centroids.
+    - Detected 1.02% anomalies based on distance from cluster centroids.
 
-    - Effective for clear separations but less sensitive to subtle variations.
+    - Useful for simple cluster-based separation but less sensitive to subtle anomalies.
 
 2. Isolation Forest
 
-    - Applied Isolation Forest (n_estimators=100, contamination='auto').
+    - Applied Isolation Forest (contamination = 0.01, default n_estimators = 100) on the scaled test data to identify outliers and detect anomalous traffic patterns.
 
-    - Detected ~20.78% anomalies, showing higher sensitivity to rare and hidden attack patterns.
+    - Detected 0.91% anomalies.
 
-    - More effective for identifying complex and subtle network anomalies.
+    - Better at identifying complex and rare attack patterns compared to K-Means.
 
-3. Conclusion
-   Unsupervised anomaly detection was performed using the top 10 selected features. K-Means detected 1.74% anomalies, while Isolation Forest identified 20.78%. K-Means was efficient but missed subtle variations. Isolation Forest isolated complex, rare anomalies more effectively.
-   
+3. Supervised Model comparison - Compared supervised models (Random Forest, SVM, Logistic Regression).
+
+4. Hyperparameter Tuning
+    - Performed hyperparameter tuning using GridSearchCV / RandomizedSearchCV with cross-validation on the training set to find optimal model parameters.
+
+    - For the Random Forest, tuned parameters included n_estimators, max_depth, min_samples_split, min_samples_leaf, and criterion. Example final tuned parameters used in the project: n_estimators=50, min_samples_split=5, min_samples_leaf=2, criterion='entropy', random_state=42.
+
+    - For SVM and Logistic Regression, tuned parameters such as C, kernel (SVM), and max_iter (Logistic Regression) were considered.
+    - After tuning and validating with cross-validation, model performance on cross-validation folds and final test set were reported. The Random Forest remained the best model overall.
+
+5. Conclusion
+     Unsupervised anomaly detection was performed using the Top 10 selected features. K-Means detected 1.02% anomalies, whereas Isolation Forest detected 0.91%. Isolation Forest proved more effective at isolating subtle and hidden intrusion.
+   Systematically compared models and tuned hyperparameters with cross-validation; Random Forest was selected as final supervised model due to its highest cross-validated performance and stability on the test set.
+
+## Milestone 4: Alert Generation & Logging
+- A hybrid alert engine was implemented:
+    If (RandomForest predicts attack) OR (IsolationForest flags anomaly):
+        Final Alert = "ALERT"
+    Else:
+        Final Alert = "NORMAL"
+
+- Generated log file: SentinelNet_NIDS_Alert_Log.csv
+        This file includes: Final Alert, RF Predicted Label, IF Anomaly Flag, True Label, Selected features
+- This log is used by the Streamlit Dashboard.
+
 ## Tech Stack
 
 - **Language:** Python  
@@ -118,6 +140,8 @@ This project uses the **CICIDS 2017 Wednesday dataset**.
 - **Dataset:** CICIDS 2017 - Wednesday Working Hours subset  
 
 - **Environment:** Google Colab
+  
+- **Dashboard:** Streamlit
 
 ## Dataset Access
 
