@@ -9,7 +9,6 @@ random_forest_model.pkl
 rf_model_tuned.pkl
 svm_model.pkl
 svm_model_tuned_fast.pkl
-MileStone-4_SentinelNet-AI.ipynb
 alerts_log.csv
 isolation_forest_model.pkl
 kmeans_model.pkl
