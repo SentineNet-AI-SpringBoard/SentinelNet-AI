@@ -150,14 +150,6 @@ making it ideal for production-level network intrusion detection.</p>
 <h3> Week 7: Alert Generation and Logging </h3> <p> In Week 7, a <b>real-time intrusion alert system</b> was developed. The best-performing model was used to simulate real-time predictions and generate alerts for detected intrusions. Each alert was logged with timestamps, attack category, and model confidence score. Logs were stored in CSV and text formats to allow easy integration with dashboards or monitoring tools. </p> <ul> <li>Simulated real-time intrusion detection using test data.</li> <li>Developed alert-generation logic for identified attacks.</li> <li>Logged alerts with timestamp, attack type, and confidence score.</li> <li>Stored results in CSV and text formats.</li> </ul> <p><b>Deliverables:</b> Real-time alert generation module, structured intrusion logs, and alert workflow documentation.</p>
 <h2> Project Timeline Summary</h2>
 
-<table>
-<tr><th>Week</th><th>Milestone</th><th>Focus Area</th></tr>
-<tr><td><b>1</b></td><td>Project Initialization</td><td>Dataset Acquisition & Understanding</td></tr>
-<tr><td><b>2</b></td><td>Data Preprocessing</td><td>Cleaning, Encoding, Splitting</td></tr>
-<tr><td><b>3</b></td><td>Feature Engineering</td><td>Feature Importance & Reduction</td></tr>
-<tr><td><b>4</b></td><td>Model Training</td><td>ML Algorithms & Evaluation</td></tr>
-<tr><td><b>5</b></td><td>Final Evaluation</td><td>Model Comparison & Summary Insights</td></tr>
-</table>
 
 ---
 
