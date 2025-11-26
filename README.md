@@ -108,7 +108,12 @@ Generated confusion matrices and ROC curves to visually compare model performanc
 Chose the best model based on F1-score and recall, which measure detection quality.
 
 Recorded all results and performance metrics for final reporting.
-****Milestone 4***
+
+
+***Milestone 4***
+
+
+
 Weeks 7 – 8 : Real-Time Prediction, Alert Logging, and Final Optimization
 1. Real-Time Prediction Simulation
 Simulated live traffic classification using the tuned Random Forest model.
