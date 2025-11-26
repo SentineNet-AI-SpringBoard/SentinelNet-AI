@@ -108,3 +108,46 @@ Generated confusion matrices and ROC curves to visually compare model performanc
 Chose the best model based on F1-score and recall, which measure detection quality.
 
 Recorded all results and performance metrics for final reporting.
+****Milestone 4***
+Weeks 7 – 8 : Real-Time Prediction, Alert Logging, and Final Optimization
+1. Real-Time Prediction Simulation
+Simulated live traffic classification using the tuned Random Forest model.
+Used a 1,500-packet subset to imitate real-time packet flow.
+Processed data in mini-batches for smooth simulation.
+Saved results as:
+week7_predictions.csv (sample subset)
+week7_predictions_full.csv (complete dataset results).
+2. Alert Generation and Logging
+Generated alerts for packets classified as intrusions.
+Logged detection events into alert_logs.txt with timestamps.
+Created summary reports showing total packets, detected intrusions, and percentage of attacks:
+week7_alert_summary.csv
+week7_alert_summary.txt
+3. Readable Reports and Visualization
+Compiled a readable report week7_readable_report.txt summarizing predictions and statistics.
+Visualized:
+Bar chart of predicted traffic types.
+Pie chart showing benign vs intrusion ratios.
+Combined outputs into week7_final_results.csv.
+4. Reason for Using 1,500 Packets Instead of Full Dataset
+Reason	Explanation
+Efficiency	The full dataset (≈682k packets) would take hours to process.
+Balance	The 1,500-sample contains both benign and malicious packets, giving a realistic mix.
+Resource Limitations	Prevents memory overuse and runtime issues in Google Colab.
+Deployment Readiness	A smaller dataset allows smooth web simulation performance.
+Final Outcomes
+Completed end-to-end intrusion detection and alert generation workflow.
+Achieved approximately 93 % accuracy with the tuned Random Forest model.
+Real-time alert and logging system implemented successfully.
+Results saved in CSV and text formats for readable analysis.
+Model is ready to be exported for website deployment in future work.
+Key Project Files
+File / Folder	Description
+Cleaned_wednesday.csv	Cleaned dataset
+Encoded_wednesday.csv	Encoded dataset
+Wednesday_top10_features.csv	Top 10 selected features
+rf_model_tuned.pkl	Tuned Random Forest (used for deployment)
+week7_predictions.csv	Real-time simulation results
+alert_logs.txt	Generated intrusion logs
+week7_alert_summary.csv	Summary of detected intrusions
+week7_final_results.csv	Consolidated result file
